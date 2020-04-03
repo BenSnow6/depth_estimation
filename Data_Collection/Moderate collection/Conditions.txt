@@ -1,0 +1,37 @@
+Understanding data collection
+------------------------------
+
+Sunny_driving:
+Speed: 25mph
+Weather: Extra sunny
+Driving style: Obeys traffic laws and non erratic
+Number of frames: 500
+Labels:_00001-->_00500
+
+Snowy_driving:
+Speed: 25mph
+Weather: Snowy
+Driving style: Obeys traffic laws and non erratic
+Number of frames: 1000
+Labels: _00501-_01500
+
+Foggy_driving:
+Speed: 25mph
+Weather: Fog and dark
+Driving style: Obeys traffic laws and non erratic
+Number of frames: 1100
+Labels: _01501-_02600
+
+Blizzard_driving:
+Speed: 25mph
+Weather: Bilzzard
+Driving style: Obeys traffic laws and non erratic
+Number of frames: 3000
+Labels: _02601-_05600
+
+Rain_night:
+Speed: 25mph
+Weather: Thunder and night time
+Driving style: Obeys traffic laws and non erratic
+Number of frames: 2257
+Labels: _05601-_07857
