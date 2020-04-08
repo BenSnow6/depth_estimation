@@ -31,7 +31,7 @@ def import_raw_depth_image(path):
     image = np.frombuffer(buffer, dtype="float32").reshape(int(720), -1)
     return image
 
-def show_depth_image(image, size=(18,32)):
+def show_depth_image(image, size=(8,8)):
     plt.figure(figsize = size) ## make the figure larger or smaller, keep the aspect ratio (9:16) the same
     plt.imshow(image, interpolation='nearest')
     plt.axis("off")
