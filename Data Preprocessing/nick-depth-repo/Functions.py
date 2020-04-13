@@ -3,12 +3,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-feature_descriptors =   {
-                                'SIFT'  :   cv2.xfeatures2d.SIFT_create(), 
-                                'SURF'  :   cv2.xfeatures2d.SURF_create(upright=False, extended=True), 
-                                'ORB'   :   cv2.ORB_create(nfeatures=10000), 
-                                'BRISK' :   cv2.BRISK_create()
-                        }
+# feature_descriptors =   {
+#                                 'SIFT'  :   cv2.xfeatures2d.SIFT_create(), 
+#                                 'SURF'  :   cv2.xfeatures2d.SURF_create(upright=False, extended=True), 
+#                                 'ORB'   :   cv2.ORB_create(nfeatures=10000), 
+#                                 'BRISK' :   cv2.BRISK_create()
+#                         }
 
 def show_img(im, ax=None, figsize=(8,8)):
     if not ax: _,ax = plt.subplots(1,1,figsize=figsize)
