@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import math
-
+import sys
 
 def get_depth(depth_img,u,v):
     return depth_img[u][v]
@@ -11,18 +11,21 @@ def get_depth(depth_img,u,v):
 def isValid(depth_1, depth_2):
     return (depth_1>0 and depth_2>0)
 
+class MyError(Exception):
+    pass
+
 def calc_errors(pred_depth, grndt_depth):
+    difference_err = 0  # 1
+    sqr_diff_err = 0    # 2
+    inv_err = 0         # 3
+    inv_sqr_err = 0     # 4
+    log_err = 0         # 5
+    log_sqr_err = 0     # 6
+    log_non_abs_err = 0 # 7
+    abs_rel_err = 0     # 8
+    sqr_rel_err = 0     # 9
+    valid_pixels = 0   # valid pixel count
     if (pred_depth.shape[0] == grndt_depth.shape[0] and pred_depth.shape[1] == grndt_depth.shape[1]):
-        difference_err = 0  # 1
-        sqr_diff_err = 0    # 2
-        inv_err = 0         # 3
-        inv_sqr_err = 0     # 4
-        log_err = 0         # 5
-        log_sqr_err = 0     # 6
-        log_non_abs_err = 0 # 7
-        abs_rel_err = 0     # 8
-        sqr_rel_err = 0     # 9
-        valid_pixels = 0   # valid pixel count
         for u in range(0, pred_depth.shape[0]):
             for v in range(0, pred_depth.shape[1]):
                 # grabbing the depths at point (u,v) from the depth maps
@@ -88,5 +91,5 @@ def calc_errors(pred_depth, grndt_depth):
         sqr_rel_err = sqr_rel_err/valid_pixels
 
     else:
-        print("Depth maps do not have the same dimensions!")
+        raise MyError('Depth maps do not have the same dimensions!')
     return [difference_err, sqr_diff_err, inv_err, inv_sqr_err, log_err, log_sqr_err, scale_inv_err, abs_rel_err, sqr_rel_err]
