@@ -177,7 +177,7 @@ def mean_and_std_errors(predictions, grnd_trth, val_size, batch_size):
 
     # increment the errors
 
-    for i in range(0, chunk_size):
+    for i in range(0, chunk_size-1):
         for j in range(0, batch_size-1):
             difference_err_avg  += error_dictionary[f"{i}"][f"{j}"][0]
             sqr_diff_err_avg    += error_dictionary[f"{i}"][f"{j}"][1]
@@ -218,7 +218,7 @@ def mean_and_std_errors(predictions, grnd_trth, val_size, batch_size):
     #//////////////////////////////////////#
 
     # sum squared differences
-    for i in range(0, chunk_size):
+    for i in range(0, chunk_size-1):
         for j in range(0, batch_size-1):
             difference_err_count    += (error_dictionary[f"{i}"][f"{j}"][0] - difference_err_avg)**2
             sqr_diff_err_count      += (error_dictionary[f"{i}"][f"{j}"][0] - sqr_diff_err_avg)**2
