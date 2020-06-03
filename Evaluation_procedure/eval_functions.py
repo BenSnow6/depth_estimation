@@ -158,7 +158,7 @@ def mean_and_std_errors(predictions, grnd_trth, val_size, batch_size):
     for i in range(chunk_size-1):
         for j in range(batch_size-1):
             error_dictionary[f"{i}"][f"{j}"] = calc_errors(predictions[i][j], grnd_trth[i][j])
-        #print(f"Calculating errors for batch {i} of {int(chunk_size)}")
+        print(f"Calculating errors for batch {i} of {int(chunk_size)}")
 
     #//////////////////////////////////////#
 
@@ -188,6 +188,7 @@ def mean_and_std_errors(predictions, grnd_trth, val_size, batch_size):
             log_non_abs_err_avg += error_dictionary[f"{i}"][f"{j}"][6]
             abs_rel_err_avg     += error_dictionary[f"{i}"][f"{j}"][7]
             sqr_rel_err_avg     += error_dictionary[f"{i}"][f"{j}"][8]
+        print(f"Incrimenting for batch {i} of {chunk_size-1}")
 
     #//////////////////////////////////////#
 
@@ -221,14 +222,16 @@ def mean_and_std_errors(predictions, grnd_trth, val_size, batch_size):
     for i in range(0, chunk_size-1):
         for j in range(0, batch_size-1):
             difference_err_count    += (error_dictionary[f"{i}"][f"{j}"][0] - difference_err_avg)**2
-            sqr_diff_err_count      += (error_dictionary[f"{i}"][f"{j}"][0] - sqr_diff_err_avg)**2
-            inv_err_count           += (error_dictionary[f"{i}"][f"{j}"][0] - inv_err_avg)**2
-            inv_sqr_err_count       += (error_dictionary[f"{i}"][f"{j}"][0] - inv_sqr_err_avg)**2
-            log_err_count           += (error_dictionary[f"{i}"][f"{j}"][0] - log_err_avg)**2
-            log_sqr_err_count       += (error_dictionary[f"{i}"][f"{j}"][0] - log_sqr_err_avg)**2
-            log_non_abs_err_count   += (error_dictionary[f"{i}"][f"{j}"][0] - log_non_abs_err_avg)**2
-            abs_rel_err_count       += (error_dictionary[f"{i}"][f"{j}"][0] - abs_rel_err_avg)**2
-            sqr_rel_err_count       += (error_dictionary[f"{i}"][f"{j}"][0] - sqr_rel_err_avg)**2
+            sqr_diff_err_count      += (error_dictionary[f"{i}"][f"{j}"][1] - sqr_diff_err_avg)**2
+            inv_err_count           += (error_dictionary[f"{i}"][f"{j}"][2] - inv_err_avg)**2
+            inv_sqr_err_count       += (error_dictionary[f"{i}"][f"{j}"][3] - inv_sqr_err_avg)**2
+            log_err_count           += (error_dictionary[f"{i}"][f"{j}"][4] - log_err_avg)**2
+            log_sqr_err_count       += (error_dictionary[f"{i}"][f"{j}"][5] - log_sqr_err_avg)**2
+            log_non_abs_err_count   += (error_dictionary[f"{i}"][f"{j}"][6] - log_non_abs_err_avg)**2
+            abs_rel_err_count       += (error_dictionary[f"{i}"][f"{j}"][7] - abs_rel_err_avg)**2
+            sqr_rel_err_count       += (error_dictionary[f"{i}"][f"{j}"][8] - sqr_rel_err_avg)**2
+        print(f"Sum sqr for batch {i} of {chunk_size-1}")
+        
 
     #//////////////////////////////////////#
 
