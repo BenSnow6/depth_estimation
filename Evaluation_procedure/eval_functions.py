@@ -21,7 +21,7 @@ from os.path import isfile, join
 import torch.nn.functional as F
 from torchsummary import summary
 import math
-
+import pickle
 
 
 def get_depth(depth_img,u,v):
@@ -265,3 +265,78 @@ def mean_and_std_errors(predictions, grnd_trth, val_size, batch_size):
     mean_errors = [difference_err_avg, sqr_diff_err_avg, inv_err_avg, inv_sqr_err_avg, log_err_avg, log_sqr_err_avg, log_non_abs_err_avg, abs_rel_err_avg, sqr_rel_err_avg]
     std_devs    = [difference_err_sigma, sqr_diff_err_sigma, inv_err_sigma, inv_sqr_err_sigma, log_err_sigma, log_sqr_err_sigma, log_non_abs_err_sigma, abs_rel_err_sigma, sqr_rel_err_sigma]
     return mean_errors, std_devs
+
+def load_calculated_errors():
+
+    path_saved = f'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/val_means.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from val_means.pckl
+    f = open(path_saved, 'rb')
+    val_means = pickle.load(f)
+    f.close()
+    path_saved = f'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/val_stds.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from val_stds.pckl
+    f = open(path_saved, 'rb')
+    val_stds = pickle.load(f)
+    f.close()
+    path_saved = f'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/test_means.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from test_means.pckl
+    f = open(path_saved, 'rb')
+    test_means = pickle.load(f)
+    f.close()
+    path_saved = f'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/test_stds.pckl'## Change this path to the directory where the predictions are stored, don't change the file name from test_stds.pckl
+    f = open(path_saved, 'rb')
+    test_stds = pickle.load(f)
+    f.close()
+
+    return val_means, val_stds, test_means, test_stds
+
+def load_test_preds_and_gts():
+
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/test_preds.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from test_preds.pckl
+    f = open(path_saved, 'rb')
+    test_preds = pickle.load(f)
+    f.close()
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/test_gts.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from test_gts.pckl
+    f = open(path_saved, 'rb')
+    test_gts = pickle.load(f)
+    f.close()
+
+    return test_preds, test_gts
+
+def load_val_preds_and_gts():
+
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/val_preds.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from val_means.pckl
+    f = open(path_saved, 'rb')
+    val_preds = pickle.load(f)
+    f.close()
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/val_gts.pckl' ## Change this path to the directory where the predictions are stored, don't change the file name from val_gts.pckl
+    f = open(path_saved, 'rb')
+    val_gts = pickle.load(f)
+    f.close()
+    
+    return val_preds, val_gts
+
+def load_calculated_kitti_errors():
+
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/kitti_means.pckl' ## Change filepath but not file name
+    f = open(path_saved, 'rb')
+    kitti_means = pickle.load(f)
+    f.close()
+    
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/kitti_stds.pckl' ## Change filepath but not file name
+    f = open(path_saved, 'rb')
+    kitti_stds = pickle.load(f)
+    f.close()
+
+    return kitti_means , kitti_stds
+
+def load_kitti_preds_and_gts():
+    
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/kitti_preds.pckl' ## Change filepath but not file name
+    f = open(path_saved, 'rb')
+    kitti_preds = pickle.load(f)
+    f.close()
+    
+    path_saved = 'C:/Users/Ben/OneDrive - Bournemouth University/Computer Vision/Datasets/Saved_preds/kitti_gts.pckl' ## Change filepath but not file name
+    f = open(path_saved, 'rb')
+    kitti_gts = pickle.load(f)
+    f.close()
+
+    return kitti_preds , kitti_gts
