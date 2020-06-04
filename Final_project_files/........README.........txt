@@ -1,0 +1,45 @@
+
+#########################################################
+
+Description of submitted work and how to access data.
+
+#########################################################
+
+The main folder contains an assortment of image files, .py files, a csv file, a folder called 'Simple' and a single .ipynb file: Depth_estimation_final_copy.ipynb
+
+The notebook file is our final submission.
+
+.py files are refactored python functions that are imported into the main notebook to save space.
+The images are used as figures in the notebook file and the 'Simple' folder contains a few more images.
+
+The csv file is a simple data description file and is imported into the notebook file also.
+
+There is also a saved, trained CNN model called model_21052020 that can be used instead of training from scratch.
+
+If you were to run the notebook start to finish (after changing the path directories of course) it would take around 14 hours.
+Due to this, I have saved some of the data along the way as well as calculated statistics so you can load in those instead if you please.
+
+#########################################################
+
+How to access the data collected and used in this project.
+
+#########################################################
+
+All data is stored in the following OneDrive directory. The whole directory is 118GB... enjoy downloading that one! ;)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+https://livebournemouthac-my.sharepoint.com/:f:/g/personal/bsnow_bournemouth_ac_uk/EmXxIrfiQg1IlJkc18oqVbwBEm-4461czkd9OvFbvjH1UA?e=7kezvD
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+I have zipped the Moderate Collection (Main used dataset) for convenience if you would to only like part to access the main training data.
+This dataset is used throughout the project and you will need to change a few lines of code (some f-strings) so that the Moderate_Dataset (Dataset class) will work correctly.
+
+This is all explained in the code.
+
+
+Any issues with accessing data, not being able to download or if you cannot execute cells then please email me personally: Ben Snow, bsnow@bournemouth.ac.uk.
+
+
+Best wishes and stay safe
+
+Group 2
